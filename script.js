@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-const apikey = "f45e282121197355f5a20be2d8a6234e"
+const apikey = ""
 const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&exclude=daily&q="
 
 const input = document.querySelector(".searchbar")
