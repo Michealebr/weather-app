@@ -6,7 +6,7 @@ body{
     margin: 0;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 
-    /* background: #212121; */
+    /* background: #2c2c2e; */
 }
 .waether-app-container{
     background: #1c1c1e;
@@ -67,32 +67,37 @@ h2{
 .temp{
     font-size: 80px;
     font-weight: 800;
+    margin-right: 40px;
 }
 .weather-details{
     display: flex;
-    /* width: 100%; */
+
     justify-content: space-between;
 
 }
 .icon{
     height: 60px;
-    width: 60px;
+    width: auto;
     justify-content: center;
     align-items: center;
     grid-column: 1/2;
     grid-row: 1/3 ;
-    margin-top: 5px;
-    margin-left: 10px 
+}
+.icons{
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 1/3 ;
+    margin-top: -10px; 
+    height: 90px;
+    filter: brightness(0) invert(1);
+    
 }
 
 .temp-content{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-
-    /* flex-direction: column; */
-    /* align-items: center ; */
-    /* justify-content: center; */
     width: 350px;
     border-radius: 18px;
     background: #2c2c2e;
@@ -145,6 +150,10 @@ h2{
     justify-content: center;
     height: 29px;
     margin-top: 12px;
+}
+.sm-icon{
+    height: 50px;
+    filter: brightness(2) invert(1);
 }
 .forecast-temp{
     text-align: center;
