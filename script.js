@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-<<<<<<< Updated upstream
 const apikey = ""
 const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&exclude=daily&q="
-=======
-const apikey = "f45e282121197355f5a20be2d8a6234e"
-const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
->>>>>>> Stashed changes
 
 const input = document.querySelector(".searchbar")
 const searchBtn = document.querySelector(".search-btn")
