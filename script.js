@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 
-<<<<<<< Updated upstream
-const apikey = ""
-const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&exclude=daily&q="
-=======
 const apikey = "f45e282121197355f5a20be2d8a6234e"
 const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
->>>>>>> Stashed changes
 
 const input = document.querySelector(".searchbar")
 const searchBtn = document.querySelector(".search-btn")
@@ -73,8 +68,22 @@ async function checkWeatherForecast (city){
         forecastByDate[date] = [forecast];
       }
     });
-    // Get the forecast for the next 5 days
-    const forecastDates = Object.keys(forecastByDate).slice(0, 5);
+
+//      Function to get the latest next 5 days
+  function getLatestNext5Days() {
+    const currentDate = new Date();
+    const forecastDates = [];
+
+    for (let i = 1; i <= 5; i++) {
+      const nextDate = new Date(currentDate.getTime() + i * 24 * 60 * 60 * 1000);
+      const formattedDate = nextDate.toISOString().split('T')[0];
+      forecastDates.push(formattedDate);
+    }
+
+    return forecastDates;
+  }
+
+  const forecastDates = getLatestNext5Days();
 
     const forecastInfo = {};
 
