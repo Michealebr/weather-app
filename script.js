@@ -3,17 +3,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
 const apikey = "f45e282121197355f5a20be2d8a6234e"
 const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
-
 const input = document.querySelector(".searchbar")
 const searchBtn = document.querySelector(".search-btn")
 const weatherIcon = document.querySelector(".icons")
 const weatherContainer = document.querySelector('.waether-app-container');
 
-  
+  // gets the weather of the city inputed for the current day 
 async function checkWeather (city){
     const response = await fetch(url + city + `&appid=${apikey}`)
     var data = await response.json()
-    // console.log(data)
 
     document.querySelector(".city").innerHTML = data.name
     document.querySelector(".temp").innerHTML = data.main.temp.toFixed(0) + "°"
@@ -21,18 +19,6 @@ async function checkWeather (city){
     document.querySelector(".temp-highs").innerHTML = data.main.temp_max.toFixed(0)
     document.querySelector(".wind-speeds").innerHTML = data.wind.speed.toFixed(0)
 
-    // document.querySelector(".weather").classList.remove("loading")
-    // setTimeout(() => {
-    //     // Update weather information
-  
-    //     // Remove loading class
-    //        document.querySelector(".weather").classList.remove("loading")
-
-  
-    //     // Expand the container smoothly
-    //     weatherContainer.classList.add('expanded');
-    //   },100,1000);
-    
     setTimeout(() => {
         // Expand the container smoothly
         weatherContainer.classList.add('expanded');
@@ -43,10 +29,11 @@ async function checkWeather (city){
           // Remove loading class
           document.querySelector('.weather').classList.remove('loading');
           setTimeout(() => {
+            // makes the information appear smoothly 
           document.querySelector('.weather').classList.add('show');
           },50)
-        }, 500); // Adjust the timeout to match the CSS transition duration
-      } ); // Adjust the timeout according to your needs
+        }, 500)
+      } ); 
 
 
     if(data.weather[0].main === "Clouds"){
@@ -77,6 +64,7 @@ async function checkWeather (city){
 
 }
 
+// gets the forecast for the next 5 days 
 const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q="
 async function checkWeatherForecast (city){
     const forecastResponse = await fetch(apiUrl + city + `&appid=${apikey}`)
@@ -124,7 +112,7 @@ async function checkWeatherForecast (city){
       }, -Infinity);
 
       const forecastDate = new Date(date);
-      const forecastDay = forecastDate.toLocaleString('en-us', { weekday: 'long' });
+      const forecastDay = forecastDate.toLocaleString('en-us', { weekday: 'long' }).substring(0, 3);
 
 
       forecastInfo[date] = {
@@ -202,8 +190,6 @@ async function checkWeatherForecast (city){
       }
     }
     );
-
-    console.log(forecastInfo) 
 }
 
 
@@ -218,6 +204,4 @@ document.querySelector(".searchbar").addEventListener("keyup", function(event){
     }
 })
 })
-const weatherAppContainer = document.querySelector('.weather-app-container');
 
-// Remove the initial class after a delay

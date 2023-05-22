@@ -1,0 +1,87 @@
+@media (max-width: 1199px){
+
+}
+@media (max-width: 999px) {
+
+}
+@media (max-width: 800px) {
+    .waether-app-container{
+        margin:40px
+        }
+}
+@media (max-width: 700px)  {
+    .waether-app-container{
+    width: 520px;
+    }
+    .expanded{
+        transition:  .5s ease-in-out 0s;
+
+    }
+    .show{
+        opacity: 1;
+        transition: opacity .5s ease-in-out 0s;
+    
+    }
+}
+@media (max-width: 650px) {
+    .waether-app-container{
+        width: 450px;
+        }
+}
+@media (max-width: 595px ){
+    .waether-app-container{
+        width: 400px;
+        padding: 30px;
+        }
+
+        .future-forecast{
+            margin-top: 30px;
+         }
+}
+@media (max-width: 540px ){
+    .waether-app-container{
+        }
+
+}
+@media (max-width: 390px){
+    .waether-app-container{
+        width: 300px;
+        /* height: 470px; */
+        padding: 20px;
+        margin: 2rem;
+        }
+    .weather-details{
+        flex-direction: column;
+    }
+    .temp-content{
+        width: auto;
+        padding: 10px;
+        margin-top: 10px;
+     }
+     .description{
+        font-size: 15px;
+        margin-top: 5px;
+     }
+     .more-description{
+        font-size: 10px;
+     }
+     .icon{
+        margin-top: 10px;
+     }
+     .icons{
+        height: 70px;
+     }
+/* 5 day forecast  */
+     .future-forecast{
+        margin-top: 30px;
+     }
+     .date{
+        font-size: 13px;
+     }
+     .sm-icon{
+        /* height: 40px; */
+     }
+     .forecast-temp{
+        font-size: 13.5px;
+     }
+}
