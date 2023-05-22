@@ -7,7 +7,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const input = document.querySelector(".searchbar")
 const searchBtn = document.querySelector(".search-btn")
 const weatherIcon = document.querySelector(".icons")
-
+const weatherContainer = document.querySelector('.waether-app-container');
 
   
 async function checkWeather (city){
@@ -20,6 +20,33 @@ async function checkWeather (city){
     document.querySelector(".description").innerHTML = data.weather[0].main
     document.querySelector(".temp-highs").innerHTML = data.main.temp_max.toFixed(0)
     document.querySelector(".wind-speeds").innerHTML = data.wind.speed.toFixed(0)
+
+    // document.querySelector(".weather").classList.remove("loading")
+    // setTimeout(() => {
+    //     // Update weather information
+  
+    //     // Remove loading class
+    //        document.querySelector(".weather").classList.remove("loading")
+
+  
+    //     // Expand the container smoothly
+    //     weatherContainer.classList.add('expanded');
+    //   },100,1000);
+    
+    setTimeout(() => {
+        // Expand the container smoothly
+        weatherContainer.classList.add('expanded');
+        // Wait for the expansion animation to finish
+        setTimeout(() => {
+          // Update weather information
+  
+          // Remove loading class
+          document.querySelector('.weather').classList.remove('loading');
+          setTimeout(() => {
+          document.querySelector('.weather').classList.add('show');
+          },50)
+        }, 500); // Adjust the timeout to match the CSS transition duration
+      } ); // Adjust the timeout according to your needs
 
 
     if(data.weather[0].main === "Clouds"){
@@ -191,3 +218,6 @@ document.querySelector(".searchbar").addEventListener("keyup", function(event){
     }
 })
 })
+const weatherAppContainer = document.querySelector('.weather-app-container');
+
+// Remove the initial class after a delay
